@@ -1,0 +1,36 @@
+﻿
+@model libraryManagementSystem.Models.Entity.author
+
+@{
+    ViewBag.Title = "addAuthor";
+    Layout = "~/Views/Shared/Layout_1.cshtml";
+}
+
+@*we are going to use htmlhelper for add operation this time*@
+@*difference between using html helper and form input that you must name the input text same as the db field but in html helper texboc you dont need to.*@
+
+@*<form class="form-group" method="post">*@
+@using (Html.BeginForm("addAuthor", "Author", FormMethod.Post))
+{
+    <div style="margin-top:15px">
+        <label>
+            Author Name
+        </label>
+        @*<input type="text" class="form-control" name="author_name" /> note that name of the input text and category class' attribute category_name must be same*@
+        @Html.TextBoxFor(a => a.author_name, new { autocomplete = "off", @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.author_name, "", new { @style = "color:red" })
+        <div style="margin-bottom:15px"></div>
+        <label>
+            Author Surname
+        </label>
+        @Html.TextBoxFor(a => a.author_surname, new { autocomplete = "off", @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.author_surname, "", new { @style = "color:red" })
+        @*<input type="text" class="form-control" name="author_surname" /> note that name of the input text and category class' attribute category_name must be same*@
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="autAddBtn">Add</button>
+    </div>
+}
+@*</form>*@
+
+

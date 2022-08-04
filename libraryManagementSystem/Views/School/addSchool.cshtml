@@ -1,0 +1,38 @@
+﻿
+@model libraryManagementSystem.Models.Entity.schools
+
+@{
+    ViewBag.Title = "addSchool";
+    Layout = "~/Views/Shared/Layout_1.cshtml";
+}
+
+
+@using (@Html.BeginForm("addSchool", "School", FormMethod.Post))
+{
+    <div style="margin-top:15px">
+
+        <label>School Name</label>
+        @Html.TextBoxFor(s => s.school_name, new { @class = "form-control", autocomplete = "off" })
+        @Html.ValidationMessageFor(s=>s.school_name, "", new {@style="color:red"})
+    </div>
+
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="schoolAddBtn">Add</button>
+    </div>
+}
+
+
+
+<!--<form class="form-group" method="post" style="margin-bottom:15px">
+    <div style="margin-top:15px">
+        <label>
+            School Name
+        </label>
+
+        <input type="text" class="form-control" name="school_name" autocomplete="off"/>-->
+@*note that name of the input text and category class' attribute category_name must be same*@
+<!--</div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="schlAddBtn">Add</button>
+    </div>
+</form>-->

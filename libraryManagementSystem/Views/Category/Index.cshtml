@@ -1,0 +1,49 @@
+﻿@*using package for usage of model*@
+@using libraryManagementSystem.Models.Entity
+
+@*category table list model*@
+@model PagedList.IPagedList<category>
+
+@using PagedList
+@using PagedList.Mvc 
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout_1.cshtml";
+}
+
+<h2>Category</h2>
+
+@using (Html.BeginForm("Index", "Category", FormMethod.Get))
+{
+    <div style="margin-bottom: 15px; margin-top: 15px; display: flex;">
+
+        @Html.TextBox("searchCategory", "", new { autocomplete = "off", style = "width: 500px; margin-bottom: 15px", placeholder = "Search a category", @class = "form-control" })
+        <button type="submit" class="btn btn-primary" style="width:150px; height:35px; margin-left:15px;"> Search <span class="fa fa-search" /> </button>
+
+    </div>
+}
+
+<table class="table table-hover">
+    <tr>
+        <th>Category ID</th>
+        <th>Category Name</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.category_id</td>
+            <td>@item.category_name</td>
+            <td>@Html.ActionLink("Delete", "deleteCategory", new { id = item.category_id }, new { @class = "btn btn-danger", onclick = "return confirm('Do you want to delete selected row?')" })</td>
+            <td>@Html.ActionLink("Update", "showUpdateCategory", new { id = item.category_id }, new { @class = "btn btn-success" })</td>
+        </tr>
+    }
+</table>
+
+<div style="float:right">@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))</div>
+
+<a href="/Category/addCategory/" class="btn btn-primary">Add new category</a>
+
+

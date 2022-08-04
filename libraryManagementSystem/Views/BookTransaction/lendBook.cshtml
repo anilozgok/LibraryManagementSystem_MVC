@@ -1,0 +1,51 @@
+﻿
+@model libraryManagementSystem.Models.Entity.transactions
+
+@{
+    ViewBag.Title = "lendBook";
+    Layout = "~/Views/Shared/Layout_1.cshtml";
+}
+
+
+@using (Html.BeginForm("lendBook", "BookTransaction", FormMethod.Post))
+{
+    <div style="margin-top:15px;">
+
+
+        <div style="margin-bottom:15px">
+            <label>Book ID</label>
+            @Html.TextBoxFor(t => t.book, new { autocomplete = "off", @class = "form-control" })
+        </div>
+
+
+        <div style="margin-bottom:15px">
+            <label>Member ID</label>
+            @Html.TextBoxFor(t => t.member, new { autocomplete = "off", @class = "form-control" })
+        </div>
+
+
+        <div style="margin-bottom:15px">
+            <label>Employee ID</label>
+            @Html.TextBoxFor(t => t.employee, new { autocomplete = "off", @class = "form-control" })
+        </div>
+
+        <div style="margin-bottom:15px">
+            <label>Taken Date</label>
+            <input type="text" class="form-control" name="taken_date" value="@DateTime.Now.ToShortDateString()" readonly="readonly" />
+        </div>
+
+        <div style="margin-bottom:15px">
+            <label>Return Date</label>
+            <input type="text" class="form-control" name="return_date" value="@DateTime.Now.AddDays(7).ToShortDateString()" readonly="readonly"/>
+        </div>
+
+    </div>
+
+    <div style="margin-top:15px">
+        <button class="btn btn-primary" id="lendBookBtn">Lend the book</button>
+    </div>
+
+    @*<div style="float:right">
+        <p>We only lend books for up to 7 days as our policy, therefore, you need to return taken books in 7 days otherwise your borrowing will be fined.</p>
+    </div>*@
+}

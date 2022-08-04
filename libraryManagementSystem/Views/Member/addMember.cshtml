@@ -1,0 +1,65 @@
+﻿
+@model libraryManagementSystem.Models.Entity.members
+
+@{
+    ViewBag.Title = "addMember";
+    Layout = "~/Views/Shared/Layout_1.cshtml";
+}
+
+
+@using (Html.BeginForm("addMember", "Member", FormMethod.Post))
+{
+    <div style="margin-top:15px;">
+
+        <div style="margin-bottom:15px">
+            <label>Member Name</label>
+            @Html.TextBoxFor(m => m.member_name, new { @class = "form-control", autocomplete = "off" })
+            @*@Html.ValidationMessageFor(m => m.member_name, "", new { @style = "color:red" })*@
+        </div>
+
+        <div style="margin-bottom:15px">
+            <label>Member Surname</label>
+            @Html.TextBoxFor(m => m.member_surname, new { @class = "form-control", autocomplete = "off" })
+            @*@Html.ValidationMessageFor(m => m.member_surname, "", new { @style = "color:red" })*@
+        </div>
+
+        <div style="margin-bottom:15px">
+            <label>Mail</label>
+            @Html.TextBoxFor(m => m.mail, new { @class = "form-control", autocomplete = "off" })
+            @*@Html.ValidationMessageFor(m => m.mail, "", new { @style = "color:red" })*@
+        </div>
+
+        <div style="margin-bottom:15px;">
+            <label>User Name</label>
+            @Html.TextBoxFor(m => m.user_name, new { @class = "form-control", autocomplete = "off" })
+            @*@Html.ValidationMessageFor(m => m.user_name, "", new { @style = "color:red" })*@
+        </div>
+
+        <div style="margin-bottom:15px;">
+            <label>Password</label>
+            @Html.PasswordFor(m => m.password, new { @class = "form-control", autocomplete = "off" })
+            <div style="margin-top:5px; margin-bottom:15px" />
+            @Html.CheckBox("showPass", new { onchange = "document.getElementById('password').type = this.checked ? 'text' : 'password';" })
+            <label>Show Password</label>
+            @*@Html.ValidationMessageFor(m => m.password, "", new { @style = "color:red" })*@
+        </div>
+
+        <div style="margin-bottom:15px;">
+            @*maskele ve çalıştır*@
+            <label>Phone Number</label>
+            @Html.TextBoxFor(m => m.phone_number, new { @class = "form-control", autocomplete = "off", placeholder = "5xx-xxx-xx-xx", type = "text", oninput = "this.value=this.value.replace(/[^0-9]/g,'');", maxlength = "10" })
+            @*@Html.ValidationMessageFor(m => m.phone_number, "", new { @style = "color:red" })*@
+        </div>
+
+        <div style="margin-bottom:15px;">
+            <label>School</label>
+            @Html.DropDownListFor(m => m.schools.school_id, (List<SelectListItem>)ViewBag.schl, new { @class = "form-control" })
+        </div>
+
+    </div>
+
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="memberAddBtn">Add</button>
+    </div>
+}
+

@@ -1,0 +1,29 @@
+﻿@model libraryManagementSystem.Models.Entity.employees
+
+
+@{
+    ViewBag.Title = "addEmployee";
+    Layout = "~/Views/Shared/Layout_1.cshtml";
+}
+
+
+@using (Html.BeginForm("addEmployee", "Employee", FormMethod.Post))
+{
+    <div style="margin-top:15px;">
+
+        <label>Employee Name</label>
+        @Html.TextBoxFor(e => e.employee_name, new { autocomplete = "off", @class = "form-control" })
+        @Html.ValidationMessageFor(emp => emp.employee_name, "", new { @style = "color:red" })
+        <div style="margin-top:15px;"></div>
+
+        <label>Employee Surname</label>
+        @Html.TextBoxFor(e => e.employee_surname, new { autocomplete = "off", @class = "form-control" })
+        @Html.ValidationMessageFor(e => e.employee_surname, "", new { @style = "color:red" })
+        <div style="margin-top:15px;"></div>
+
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="empAddBtn">Add</button>
+    </div>
+}
+

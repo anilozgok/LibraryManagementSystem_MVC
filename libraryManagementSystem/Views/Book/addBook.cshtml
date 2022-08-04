@@ -1,0 +1,43 @@
+﻿
+@model libraryManagementSystem.Models.Entity.books
+
+@{
+    ViewBag.Title = "addBook";
+    Layout = "~/Views/Shared/Layout_1.cshtml";
+}
+
+@using (Html.BeginForm("addBook", "Book", FormMethod.Post))
+{
+    <div style="margin-top:15px;">
+
+        <label>Book Name</label>
+        @Html.TextBoxFor(b => b.book_name, new { autocomplete = "off", @class = "form-control" })
+        @*@Html.ValidationMessageFor(b => b.book_name, "", new { @style = "color:red" })*@
+        <div style="margin-bottom:15px"></div>
+
+        <label>Category</label>
+        @Html.DropDownListFor(b => b.category1.category_id, (List<SelectListItem>)ViewBag.ctgry, new { @class = "form-control" })
+        <div style="margin-bottom:15px"></div>
+
+        <label>Author</label>
+        @Html.DropDownListFor(b => b.author1.author_id, (List<SelectListItem>)ViewBag.athr, new { @class = "form-control" })
+        <div style="margin-bottom:15px"></div>
+
+        <label>Publisher</label>
+        @Html.DropDownListFor(b => b.publishers.publisher_id, (List<SelectListItem>)ViewBag.pblshr, new { @class = "form-control" })
+        <div style="margin-bottom:15px"></div>
+
+        <label>Publishing Year</label>
+        @Html.TextBoxFor(b => b.publishing_year, new { autocomplete = "off", @class = "form-control", oninput = "this.value=this.value.replace(/[^0-9]/g,'');" })
+        @*@Html.ValidationMessageFor(b => b.publishing_year, "", new { @style = "color:red" })*@
+        <div style="margin-bottom:15px"></div>
+
+        <label> Page Number</label>
+        @Html.TextBoxFor(b => b.page_number, new { autocomplete = "off", @class = "form-control", type="text", oninput = "this.value=this.value.replace(/[^0-9]/g,'');" })
+        <div style="margin-bottom:15px"></div>
+    </div>
+
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="bookAddBtn">Add</button>
+    </div>
+}

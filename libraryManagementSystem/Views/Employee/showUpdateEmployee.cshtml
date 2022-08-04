@@ -1,0 +1,33 @@
+﻿
+@model libraryManagementSystem.Models.Entity.employees
+
+@{
+    ViewBag.Title = "showUpdateEmployee";
+    Layout = "~/Views/Shared/Layout_1.cshtml";
+}
+
+@using (Html.BeginForm("updateEmployee", "Employee", FormMethod.Get))
+{
+    <div style="margin-top:15px;"/>
+    <div class="form-group">
+
+        <label>Employee ID</label>
+        @Html.TextBoxFor(e => e.employee_id, new { @class = "form-control", @readonly = "readonly", autocomplete = "off" })
+        <div style="margin-top:15px;" />
+
+        <label>Employee Name</label>
+        @Html.TextBoxFor(e => e.employee_name, new { @class = "form-control", autocomplete = "off" })
+        @Html.ValidationMessageFor(e => e.employee_name, "", new { @style = "color:red" })
+        <div style="margin-top:15px;" />
+
+        <label>Employee Surname</label>
+        @Html.TextBoxFor(e => e.employee_surname, new { @class = "form-control", autocomplete = "off" })
+        @Html.ValidationMessageFor(e => e.employee_surname, "", new { @style = "color:red" })
+        <div style="margin-top:15px;" />
+
+    </div>
+    <div>
+        <button class="btn btn-warning">Update</button>
+    </div>
+}
+

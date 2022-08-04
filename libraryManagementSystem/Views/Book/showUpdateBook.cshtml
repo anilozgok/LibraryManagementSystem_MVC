@@ -1,0 +1,47 @@
+﻿
+@model libraryManagementSystem.Models.Entity.books
+
+@{
+    ViewBag.Title = "showUpdateBook";
+    Layout = "~/Views/Shared/Layout_1.cshtml";
+}
+
+@using (Html.BeginForm("updateBook", "Book", FormMethod.Post))//action name, controller name, form method type. Note that '@' tag helps us to use html helper commands
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+
+        <label>Book ID</label>
+        @Html.TextBoxFor(m => m.book_id, new { autocomplete = "off", @class = "form-control", @readonly = "readonly" })
+        <div style="margin-bottom:15px"></div>
+
+        <label>Book Name</label>
+        @Html.TextBoxFor(m => m.book_name, new { autocomplete = "off", @class = "form-control" })
+        @*@Html.ValidationMessageFor(b => b.book_name, "", new { @style = "color:red" })*@
+        <div style="margin-bottom:15px"></div>
+
+        <label>Category</label>
+        @Html.DropDownListFor(m => m.category1.category_id, (List<SelectListItem>)ViewBag.ctgry, new { @class = "form-control" })
+        <div style="margin-bottom:15px"></div>
+
+        <label>Author</label>
+        @Html.DropDownListFor(m => m.author1.author_id, (List<SelectListItem>)ViewBag.athr, new { @class = "form-control" })
+        <div style="margin-bottom:15px"></div>
+
+        <label>Publisher</label>
+        @Html.DropDownListFor(m => m.publishers.publisher_id, (List<SelectListItem>)ViewBag.pblshr, new { @class = "form-control" })
+        <div style="margin-bottom:15px"></div>
+
+        <label> Publishing Year</label>
+        @Html.TextBoxFor(m => m.publishing_year, new { autocomplete = "off", @class = "form-control" })
+        @*@Html.ValidationMessageFor(b => b.publishing_year, "", new { @style = "color:red" })*@
+        <div style="margin-bottom:15px"></div>
+
+        <label> Page Number</label>
+        @Html.TextBoxFor(m => m.page_number, new { autocomplete = "off", @class = "form-control", type = "text", oninput = "this.value=this.value.replace(/[^0-9]/g,'');" })
+        <div style="margin-bottom:15px"></div>
+    </div>
+    <div>
+        <button class="btn btn-warning">Update</button>
+    </div>
+}

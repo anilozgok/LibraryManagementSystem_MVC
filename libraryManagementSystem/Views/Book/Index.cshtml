@@ -1,0 +1,64 @@
+﻿
+@using libraryManagementSystem.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<books>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout_1.cshtml";
+}
+
+<h2>Book</h2>
+
+@using (Html.BeginForm("Index", "Book", FormMethod.Get))
+{
+    <div style="margin-bottom: 15px; margin-top: 15px; display: flex;">
+        @*<input type="search" class="form-control" placeholder="Search a book..." style="width: 500px; margin-bottom: 15px" autocomplete="off" />
+            <button type="submit" class="btn btn-primary" style="width:100px;">
+                <span class="glyphicon glyphicon-search"></span> Search
+            </button>*@
+
+        @Html.TextBox("searchBook", "", new { autocomplete = "off", style = "width: 500px; margin-bottom: 15px", placeholder = "Search a book", @class = "form-control" })
+        <button type="submit" class="btn btn-primary" style="width:150px; height:35px; margin-left:15px;"> Search <span class="fa fa-search" /> </button>
+    </div>
+}
+
+<table class="table table-hover">
+    <tr>
+        <th>Book ID</th>
+        <th>Book Name</th>
+        <th>Category</th>
+        <th>Author</th>
+        <th>Publisher</th>
+        <th>Publishing Year</th>
+        <th>Page Number</th>
+        <th>Status</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.book_id</td>
+            <td>@item.book_name</td>
+            <td>@item.category1.category_name</td>
+            <td>@item.author1.author_name @item.author1.author_surname</td>
+            <td>@item.publishers.publisher_name</td>
+            <td>@item.publishing_year</td>
+            <td>@item.page_number</td>
+            <td>@item.status</td>
+            @*<td><a href="/Book/deleteBook/@item.book_id" class="btn btn-danger">Delete</a></td>
+                <td><a href="/Book/showUpdateBook/@item.book_id" class="btn btn-success">Update</a></td>*@
+            <td>@Html.ActionLink("Delete", "deleteBook", new { id = item.book_id }, new { @class = "btn btn-danger", onclick = "return confirm('Do you want to delete selected row?')" })</td>
+            <td>@Html.ActionLink("Update", "showUpdateBook", new { id = item.book_id }, new { @class = "btn btn-success" })</td>
+        </tr>
+    }
+</table>
+
+<div style="float:right">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+</div>
+
+<a href="/Book/addBook/" class="btn btn-primary">Add new book</a>

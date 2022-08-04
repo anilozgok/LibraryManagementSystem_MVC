@@ -1,0 +1,25 @@
+﻿
+@model libraryManagementSystem.Models.Entity.publishers
+
+@{
+    ViewBag.Title = "showUpdatePublisher";
+    Layout = "~/Views/Shared/Layout_1.cshtml";
+}
+
+@using (Html.BeginForm("updatePublisher", "Publisher", FormMethod.Post))//action name, controller name, form method type. Note that '@' tag helps us to use html helper commands
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        @*@Html.LabelFor(p => p.publisher_id)*@
+        <label>ID</label>
+        @Html.TextBoxFor(p => p.publisher_id, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+        <label>Publisher Name</label>
+        @*@Html.LabelFor(p => p.publisher_name)*@
+        @Html.TextBoxFor(p => p.publisher_name, new { @class = "form-control", autocomplete="off" })
+        @Html.ValidationMessageFor(p => p.publisher_name, "", new { @style = "color:red" })
+    </div>
+    <div>
+        <button class="btn btn-warning">Update</button>
+    </div>
+}

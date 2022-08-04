@@ -1,0 +1,43 @@
+﻿
+@model libraryManagementSystem.Models.Entity.category
+
+@{
+    ViewBag.Title = "addCategory";
+    Layout = "~/Views/Shared/Layout_1.cshtml";
+}
+
+
+@*old form*@
+<!--<form class="form-group" method="post">
+
+    <div style="margin-top:15px">
+        <label>
+            Category Name
+        </label>
+        <input type="text" class="form-control" name="category_name" autocomplete="off" /> note that name of the input text and category class' attribute category_name must be same
+
+    <!--</div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="catAddBtn">Add</button>
+    </div>
+</form>-->
+
+
+@using (Html.BeginForm("addCategory", "Category", FormMethod.Post))
+{
+    <div style="margin-top:15px;">
+
+        <label>Category Name</label>
+        @Html.TextBoxFor(c => c.category_name, new { @class = "form-control", autocomplete = "off" })
+        @Html.ValidationMessageFor(c => c.category_name, "", new { @style = "color:red" })
+        <div style="margin-bottom:15px;"></div>
+
+    </div>
+
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="catAddBtn">Add</button>
+    </div>
+}
+
+
+

@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_LIBRARYModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="author">
+    <Key>
+      <PropertyRef Name="author_id" />
+    </Key>
+    <Property Name="author_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="author_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="author_surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="books" Relationship="Self.FK_books_author" FromRole="author" ToRole="books" />
+  </EntityType>
+  <EntityType Name="books">
+    <Key>
+      <PropertyRef Name="book_id" />
+    </Key>
+    <Property Name="book_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="book_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="category" Type="Int32" Nullable="false" />
+    <Property Name="author" Type="Int32" Nullable="false" />
+    <Property Name="publisher" Type="Int32" Nullable="false" />
+    <Property Name="publishing_year" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="page_number" Type="Int32" />
+    <Property Name="status" Type="Boolean" />
+    <NavigationProperty Name="author1" Relationship="Self.FK_books_author" FromRole="books" ToRole="author" />
+    <NavigationProperty Name="category1" Relationship="Self.FK_books_category" FromRole="books" ToRole="category" />
+    <NavigationProperty Name="publishers" Relationship="Self.FK_books_publishers" FromRole="books" ToRole="publishers" />
+    <NavigationProperty Name="transactions" Relationship="Self.FK_transactions_books" FromRole="books" ToRole="transactions" />
+    <Property Name="image_link" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="category_id" />
+    </Key>
+    <Property Name="category_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="category_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="books" Relationship="Self.FK_books_category" FromRole="category" ToRole="books" />
+  </EntityType>
+  <EntityType Name="employees">
+    <Key>
+      <PropertyRef Name="employee_id" />
+    </Key>
+    <Property Name="employee_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="employee_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="employee_surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="transactions" Relationship="Self.FK_transactions_employees" FromRole="employees" ToRole="transactions" />
+  </EntityType>
+  <EntityType Name="fines">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="member" Type="Int32" Nullable="false" />
+    <Property Name="transaction_id" Type="Int32" Nullable="false" />
+    <Property Name="taken_date" Type="DateTime" Precision="0" />
+    <Property Name="return_date" Type="DateTime" Precision="0" />
+    <Property Name="total_fine" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="members" Relationship="Self.FK_fines_members" FromRole="fines" ToRole="members" />
+    <NavigationProperty Name="transactions" Relationship="Self.FK_fines_transactions" FromRole="fines" ToRole="transactions" />
+  </EntityType>
+  <EntityType Name="members">
+    <Key>
+      <PropertyRef Name="member_id" />
+    </Key>
+    <Property Name="member_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="member_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="member_surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="mail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="phone_number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="school" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="fines" Relationship="Self.FK_fines_members" FromRole="members" ToRole="fines" />
+    <NavigationProperty Name="schools" Relationship="Self.FK_members_schools" FromRole="members" ToRole="schools" />
+    <NavigationProperty Name="transactions" Relationship="Self.FK_transactions_members" FromRole="members" ToRole="transactions" />
+  </EntityType>
+  <EntityType Name="publishers">
+    <Key>
+      <PropertyRef Name="publisher_id" />
+    </Key>
+    <Property Name="publisher_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="publisher_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="books" Relationship="Self.FK_books_publishers" FromRole="publishers" ToRole="books" />
+  </EntityType>
+  <EntityType Name="safe">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="month" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="schools">
+    <Key>
+      <PropertyRef Name="school_id" />
+    </Key>
+    <Property Name="school_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="school_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="members" Relationship="Self.FK_members_schools" FromRole="schools" ToRole="members" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="transactions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="book" Type="Int32" Nullable="false" />
+    <Property Name="member" Type="Int32" Nullable="false" />
+    <Property Name="employee" Type="Int32" Nullable="false" />
+    <Property Name="taken_date" Type="DateTime" Precision="0" />
+    <Property Name="return_date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="books" Relationship="Self.FK_transactions_books" FromRole="transactions" ToRole="books" />
+    <NavigationProperty Name="employees" Relationship="Self.FK_transactions_employees" FromRole="transactions" ToRole="employees" />
+    <NavigationProperty Name="fines" Relationship="Self.FK_fines_transactions" FromRole="transactions" ToRole="fines" />
+    <NavigationProperty Name="members" Relationship="Self.FK_transactions_members" FromRole="transactions" ToRole="members" />
+    <Property Name="member_return_date" Type="DateTime" Precision="0" />
+    <Property Name="transaction_status" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_books_author">
+    <End Role="author" Type="Self.author" Multiplicity="1" />
+    <End Role="books" Type="Self.books" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="author">
+        <PropertyRef Name="author_id" />
+      </Principal>
+      <Dependent Role="books">
+        <PropertyRef Name="author" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_books_category">
+    <End Role="category" Type="Self.category" Multiplicity="1" />
+    <End Role="books" Type="Self.books" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="category_id" />
+      </Principal>
+      <Dependent Role="books">
+        <PropertyRef Name="category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_books_publishers">
+    <End Role="publishers" Type="Self.publishers" Multiplicity="1" />
+    <End Role="books" Type="Self.books" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="publishers">
+        <PropertyRef Name="publisher_id" />
+      </Principal>
+      <Dependent Role="books">
+        <PropertyRef Name="publisher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_transactions_books">
+    <End Role="books" Type="Self.books" Multiplicity="1" />
+    <End Role="transactions" Type="Self.transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="books">
+        <PropertyRef Name="book_id" />
+      </Principal>
+      <Dependent Role="transactions">
+        <PropertyRef Name="book" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_transactions_employees">
+    <End Role="employees" Type="Self.employees" Multiplicity="1" />
+    <End Role="transactions" Type="Self.transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="employees">
+        <PropertyRef Name="employee_id" />
+      </Principal>
+      <Dependent Role="transactions">
+        <PropertyRef Name="employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fines_members">
+    <End Role="members" Type="Self.members" Multiplicity="1" />
+    <End Role="fines" Type="Self.fines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="members">
+        <PropertyRef Name="member_id" />
+      </Principal>
+      <Dependent Role="fines">
+        <PropertyRef Name="member" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fines_transactions">
+    <End Role="transactions" Type="Self.transactions" Multiplicity="1" />
+    <End Role="fines" Type="Self.fines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="transactions">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="fines">
+        <PropertyRef Name="transaction_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_members_schools">
+    <End Role="schools" Type="Self.schools" Multiplicity="1" />
+    <End Role="members" Type="Self.members" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="schools">
+        <PropertyRef Name="school_id" />
+      </Principal>
+      <Dependent Role="members">
+        <PropertyRef Name="school" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_transactions_members">
+    <End Role="members" Type="Self.members" Multiplicity="1" />
+    <End Role="transactions" Type="Self.transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="members">
+        <PropertyRef Name="member_id" />
+      </Principal>
+      <Dependent Role="transactions">
+        <PropertyRef Name="member" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DB_LIBRARYEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="author" EntityType="Self.author" />
+    <EntitySet Name="books" EntityType="Self.books" />
+    <EntitySet Name="category" EntityType="Self.category" />
+    <EntitySet Name="employees" EntityType="Self.employees" />
+    <EntitySet Name="fines" EntityType="Self.fines" />
+    <EntitySet Name="members" EntityType="Self.members" />
+    <EntitySet Name="publishers" EntityType="Self.publishers" />
+    <EntitySet Name="safe" EntityType="Self.safe" />
+    <EntitySet Name="schools" EntityType="Self.schools" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="transactions" EntityType="Self.transactions" />
+    <AssociationSet Name="FK_books_author" Association="Self.FK_books_author">
+      <End Role="author" EntitySet="author" />
+      <End Role="books" EntitySet="books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_books_category" Association="Self.FK_books_category">
+      <End Role="category" EntitySet="category" />
+      <End Role="books" EntitySet="books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_books_publishers" Association="Self.FK_books_publishers">
+      <End Role="publishers" EntitySet="publishers" />
+      <End Role="books" EntitySet="books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_transactions_books" Association="Self.FK_transactions_books">
+      <End Role="books" EntitySet="books" />
+      <End Role="transactions" EntitySet="transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_transactions_employees" Association="Self.FK_transactions_employees">
+      <End Role="employees" EntitySet="employees" />
+      <End Role="transactions" EntitySet="transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fines_members" Association="Self.FK_fines_members">
+      <End Role="members" EntitySet="members" />
+      <End Role="fines" EntitySet="fines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fines_transactions" Association="Self.FK_fines_transactions">
+      <End Role="transactions" EntitySet="transactions" />
+      <End Role="fines" EntitySet="fines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_members_schools" Association="Self.FK_members_schools">
+      <End Role="schools" EntitySet="schools" />
+      <End Role="members" EntitySet="members" />
+    </AssociationSet>
+    <AssociationSet Name="FK_transactions_members" Association="Self.FK_transactions_members">
+      <End Role="members" EntitySet="members" />
+      <End Role="transactions" EntitySet="transactions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

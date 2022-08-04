@@ -1,0 +1,47 @@
+﻿
+@model libraryManagementSystem.Models.Entity.members
+
+@{
+    ViewBag.Title = "showUpdateMember";
+    Layout = "~/Views/Shared/Layout_1.cshtml";
+}
+
+@using (Html.BeginForm("updateMember", "Member", FormMethod.Post))//action name, controller name, form method type. Note that '@' tag helps us to use html helper commands
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+
+        <label>Member ID</label>
+        @Html.TextBoxFor(m => m.member_id, new { @class = "form-control", @readonly = "readonly" })
+        <div style="margin-bottom:15px"></div>
+
+        <label>Member Name</label>
+        @Html.TextBoxFor(m => m.member_name, new { @class = "form-control", autocomplete = "off" })
+        <div style="margin-bottom:15px"></div>
+
+        <label>Member Surname</label>
+        @Html.TextBoxFor(m => m.member_surname, new { @class = "form-control", autocomplete = "off" })
+        <div style="margin-bottom:15px"></div>
+
+        <label>Mail</label>
+        @Html.TextBoxFor(m => m.mail, new { @class = "form-control", autocomplete = "off" })
+        <div style="margin-bottom:15px"></div>
+
+        <label>User Name</label>
+        @Html.TextBoxFor(m => m.user_name, new { @class = "form-control", autocomplete = "off" })
+        <div style="margin-bottom:15px"></div>
+
+        <label>Phone Number</label>
+        @Html.TextBoxFor(m => m.phone_number, new { @class = "form-control", autocomplete = "off", placeholder = "5xx-xxx-xx-xx", type = "text", oninput = "this.value=this.value.replace(/[^0-9]/g,'');",  })
+        <div style="margin-bottom:15px;"></div>
+
+        <label>School</label>
+        @Html.DropDownListFor(m => m.schools.school_id, (List<SelectListItem>)ViewBag.schl, new { @class = "form-control" })
+        <div style="margin-bottom:15px;"></div>
+
+    </div>
+    <div>
+        <button class="btn btn-warning">Update</button>
+    </div>
+}
+

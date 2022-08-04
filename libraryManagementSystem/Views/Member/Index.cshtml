@@ -1,0 +1,61 @@
+﻿
+@using libraryManagementSystem.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+
+@model PagedList.IPagedList<members>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout_1.cshtml";
+}
+
+<h2>Members</h2>
+
+@using (Html.BeginForm("Index", "Member", FormMethod.Get))
+{
+    <div style="margin-bottom: 15px; margin-top: 15px; display: flex;">
+
+        @Html.TextBox("searchMember", "", new { autocomplete = "off", style = "width: 500px; margin-bottom: 15px", placeholder = "Search a member", @class = "form-control" }) @*note that first parametey of the helper must be the name of controllers parameter name*@
+        <button type="submit" class="btn btn-primary" style="width:150px; height:35px; margin-left:15px;"> Search <span class="fa fa-search" /> </button>
+    </div>
+}
+
+
+<table class="table table-hover">
+    <tr>
+        <th>Member ID</th>
+        <th>Member Name</th>
+        <th>Member Surname</th>
+        <th>Mail</th>
+        <th>User Name</th>
+        <th>Phone Number</th>
+        <th>School</th>
+        <th>Delete</th>
+        <th>Update</th>
+        <th>Change Password</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.member_id</td>
+            <td>@item.member_name</td>
+            <td>@item.member_surname</td>
+            <td>@item.mail</td>
+            <td>@item.user_name</td>
+            <td>@item.phone_number</td>
+            <td>@item.schools.school_name</td>
+            <td>@Html.ActionLink("Delete", "deleteMember", new { id = item.member_id }, new { @class = "btn btn-danger", onclick = "return confirm('Do you want to delete selected row?')" })</td>
+            <td>@Html.ActionLink("Update", "showUpdateMember", new { id = item.member_id }, new { @class = "btn btn-success" })</td>
+            <td>@Html.ActionLink("Change Password", "showChangePassword", new { id = item.member_id }, new { @class ="btn btn-warning"})</td>
+        </tr>
+    }
+</table>
+
+<a href="/Member/addMember/" class="btn btn-primary">Add new member</a>
+
+<div style="float:right">@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))</div>
+
+<div style="margin-top:15px"></div>
+
+

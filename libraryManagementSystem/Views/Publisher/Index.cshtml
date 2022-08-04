@@ -1,0 +1,51 @@
+﻿
+@using libraryManagementSystem.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+
+@model PagedList.IPagedList<publishers>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout_1.cshtml";
+}
+
+<h2>Publishers</h2>
+
+@using (Html.BeginForm("Index", "Publisher", FormMethod.Get))
+{
+    <div style="margin-bottom: 15px; margin-top: 15px; display: flex;">
+        @*<input type="search" class="form-control" placeholder="Search a book..." style="width: 500px; margin-bottom: 15px" autocomplete="off" />
+            <button type="submit" class="btn btn-primary" style="width:100px;">
+                <span class="glyphicon glyphicon-search"></span> Search
+            </button>*@
+
+        @Html.TextBox("searchPublisher", "", new { autocomplete = "off", style = "width: 500px; margin-bottom: 15px", placeholder = "Search a publisher", @class = "form-control" })
+        <button type="submit" class="btn btn-primary" style="width:150px; height:35px; margin-left:15px;"> Search <span class="fa fa-search" /> </button>
+    </div>
+}
+
+<table class="table table-hover">
+    <tr>
+        <th>Publisher ID</th>
+        <th>Publisher Name</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.publisher_id</td>
+            <td>@item.publisher_name</td>
+            <td>@Html.ActionLink("Delete", "deletePublisher", new { id = item.publisher_id }, new { @class = "btn btn-danger", onclick = "return confirm('Do you want to delete selected row?')" })</td>
+            <td>@Html.ActionLink("Update", "showUpdatePublisher", new { id = item.publisher_id }, new { @class = "btn btn-success" })</td>
+            @*<td><a href="/Publisher/deletePublisher/@item.publisher_id" class="btn btn-danger">Delete</a></td>
+                <td><a href="/Publisher/showUpdatePublisher/@item.publisher_id" class="btn btn-success">Update</a></td>*@
+        </tr>
+    }
+</table>
+
+<div style="float:right">@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))</div>
+
+<a href="/Publisher/addPublisher/" class="btn btn-primary">Add new publisher</a>
+

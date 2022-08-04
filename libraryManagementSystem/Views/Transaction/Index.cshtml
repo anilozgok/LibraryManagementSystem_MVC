@@ -1,0 +1,60 @@
+﻿@using libraryManagementSystem.Models.Entity
+
+@using PagedList
+@using PagedList.Mvc
+
+@model PagedList.IPagedList<transactions>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout_1.cshtml";
+}
+
+<h2>Completed transactions</h2>
+
+@using (Html.BeginForm("Index", "Transaction", FormMethod.Get))
+{
+    <div style="margin-bottom: 15px; margin-top: 15px; display: flex;">
+
+        @Html.TextBox("searchTransaction", "", new { autocomplete = "off", style = "width: 500px; margin-bottom: 15px", placeholder = "Search a transaction by member name", @class = "form-control" })
+        <button type="submit" class="btn btn-primary" style="width:150px; height:35px; margin-left:15px;"> Search <span class="fa fa-search" /> </button>
+
+    </div>
+}
+
+
+<table class="table table-hover">
+    <tr>
+
+        <th>Transaction ID</th>
+        <th>Book</th>
+        <th>Member</th>
+        <th>Employee</th>
+        <th>Taken Date</th>
+        <th>Return Date</th>
+        <th>Member Return Date</th>
+        @*<th>Details</th>*@
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.books.book_name</td>
+            <td>@item.members.member_name @item.members.member_surname</td>
+            <td>@item.employees.employee_name @item.employees.employee_surname</td>
+            <td>@item.taken_date.Value.ToShortDateString()</td>
+            <td>@item.return_date.Value.ToShortDateString()</td>
+            <td>@item.member_return_date.Value.ToShortDateString()</td>
+
+            @*might be added later*@
+            @*<td>@Html.ActionLink("Details", "showDetails", new { id = item.id }, new { @class="btn btn-secondary", @style="background-color:#f87cdf", onclick = "return confirm('Do you want to return selected book?')" })</td>*@
+
+            @*if we want to use extra!showReturnBook page we need to uncomment this code block*@
+            @*<td>@Html.ActionLink("Take a return", "showReturnBook", new { id = item.id }, new { @class = "btn btn-warning" })</td>*@
+
+        </tr>
+    }
+</table>
+
+<div style="float:right">@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))</div>
