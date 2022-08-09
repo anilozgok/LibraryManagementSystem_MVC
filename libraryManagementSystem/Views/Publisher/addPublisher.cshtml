@@ -6,12 +6,13 @@
     Layout = "~/Views/Shared/Layout_1.cshtml";
 }
 
+
 @using (@Html.BeginForm("addPublisher", "Publisher", FormMethod.Post))
 {
     <div style="margin-top:15px;">
 
         <label>Publisher Name</label>
-        @Html.TextBoxFor(p => p.publisher_name, new { @class = "form-control", autocomplete = "off" })
+        @Html.TextBoxFor(p => p.publisher_name, new { @class = "form-control", autocomplete = "off", script=""})
         @Html.ValidationMessageFor(p => p.publisher_name, "", new { @style = "color:red" })
 
     </div>
