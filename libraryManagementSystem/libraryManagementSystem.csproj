@@ -129,6 +129,7 @@
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\BookTransactionController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
@@ -265,6 +266,46 @@
     <Content Include="showcase_web\vendor\jquery\jquery.min.js" />
     <Content Include="showcase_web\vendor\jquery\jquery.slim.js" />
     <Content Include="showcase_web\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="charts_web\css\bootstrap.css" />
+    <Content Include="charts_web\css\clndr.css" />
+    <Content Include="charts_web\css\jqvmap.css" />
+    <Content Include="charts_web\css\nav.css" />
+    <Content Include="charts_web\css\style.css" />
+    <Content Include="charts_web\images\ar2.png" />
+    <Content Include="charts_web\images\arrows.png" />
+    <Content Include="charts_web\images\avatar.jpg" />
+    <Content Include="charts_web\images\avatar1.jpg" />
+    <Content Include="charts_web\images\avatar2.jpg" />
+    <Content Include="charts_web\images\img-sprite.png" />
+    <Content Include="charts_web\images\into.png" />
+    <Content Include="charts_web\images\into1.png" />
+    <Content Include="charts_web\images\logo.png" />
+    <Content Include="charts_web\images\pp.jpg" />
+    <Content Include="charts_web\images\pp0.jpg" />
+    <Content Include="charts_web\images\pp01.jpg" />
+    <Content Include="charts_web\images\settings.png" />
+    <Content Include="charts_web\images\tick-mark.png" />
+    <Content Include="charts_web\index.html" />
+    <Content Include="charts_web\js\Chart1.js" />
+    <Content Include="charts_web\js\clndr.js" />
+    <Content Include="charts_web\js\easyResponsiveTabs.js" />
+    <Content Include="charts_web\js\jquery.easydropdown.js" />
+    <Content Include="charts_web\js\jquery.min.js" />
+    <Content Include="charts_web\js\jquery.nicescroll.js" />
+    <Content Include="charts_web\js\jquery.vmap.js" />
+    <Content Include="charts_web\js\jquery.vmap.sampledata.js" />
+    <Content Include="charts_web\js\jquery.vmap.world.js" />
+    <Content Include="charts_web\js\main.js" />
+    <Content Include="charts_web\js\moment-2.2.1.js" />
+    <Content Include="charts_web\js\site.js" />
+    <Content Include="charts_web\js\underscore-min.js" />
+    <Content Include="charts_web\resimler\book1.jpg" />
+    <Content Include="charts_web\resimler\book2.jpg" />
+    <Content Include="charts_web\resimler\book3.jpg" />
+    <Content Include="charts_web\resimler\book4.jpg" />
+    <Content Include="charts_web\resimler\book5.jpg" />
+    <Content Include="charts_web\resimler\img1.jpg" />
+    <Content Include="charts_web\w3layouts-License.txt" />
     <EntityDeploy Include="Models\Entity\LibraryDB_Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>LibraryDB_Model.Designer.cs</LastGenOutput>
@@ -335,7 +376,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -403,6 +443,7 @@
     <Content Include="showcase_web\vendor\jquery\jquery.min.map" />
     <Content Include="showcase_web\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Views\Showcase\Index.cshtml" />
+    <Content Include="Views\Chart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

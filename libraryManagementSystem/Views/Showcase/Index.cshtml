@@ -33,7 +33,10 @@
     <!-- Theme CSS -->
     <link href="~/showcase_web/css/freelancer.min.css" rel="stylesheet">
 
+
 </head>
+
+
 
 <body id="page-top">
 
@@ -123,9 +126,13 @@
                     }
                 }
             </div>
+
             <div class="" style="float:right">
                 @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+
             </div>
+
+
         </div>
 
     </section>
