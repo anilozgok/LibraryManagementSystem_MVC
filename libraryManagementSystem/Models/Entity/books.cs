@@ -9,11 +9,8 @@
 
 namespace libraryManagementSystem.Models.Entity
 {
-    using libraryManagementSystem.CustomDataAnnotation;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
     
     public partial class books
     {
@@ -24,8 +21,6 @@ namespace libraryManagementSystem.Models.Entity
         }
     
         public int book_id { get; set; }
-
-
         public string book_name { get; set; }
         public int category { get; set; }
         public int author { get; set; }

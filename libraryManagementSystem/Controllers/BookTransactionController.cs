@@ -38,23 +38,6 @@ namespace libraryManagementSystem.Controllers
             return View();
         }
 
-
-        //if we want to use extra!showReturnBook page we need to uncomment this code block
-        /*public ActionResult showReturnBook(int id)
-        {
-            var retBook = library_DB.transactions.Find(id);
-            return View("showReturnBook", retBook);
-        }
-
-        public ActionResult returnBook(transactions trnasactionParam)
-        {
-            var trns = library_DB.transactions.Find(trnasactionParam.id);
-            trns.member_return_date = trnasactionParam.member_return_date;
-            trns.transaction_status = true;
-            library_DB.SaveChanges();
-            return RedirectToAction("Index");
-        }*/
-
         public ActionResult returnBook(int id)
         {
             var trns = library_DB.transactions.Find(id);

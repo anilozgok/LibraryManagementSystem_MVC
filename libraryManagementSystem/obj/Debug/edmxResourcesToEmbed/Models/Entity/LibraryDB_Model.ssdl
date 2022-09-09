@@ -105,6 +105,7 @@
     <Property Name="return_date" Type="date" />
     <Property Name="member_return_date" Type="date" />
     <Property Name="transaction_status" Type="bit" Nullable="false" />
+    <Property Name="expire" Type="int" />
   </EntityType>
   <Association Name="FK_books_author">
     <End Role="author" Type="Self.author" Multiplicity="1" />

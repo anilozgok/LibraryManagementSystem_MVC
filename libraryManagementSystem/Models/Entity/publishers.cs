@@ -11,7 +11,6 @@ namespace libraryManagementSystem.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class publishers
     {
@@ -22,10 +21,6 @@ namespace libraryManagementSystem.Models.Entity
         }
     
         public int publisher_id { get; set; }
-
-        [Required(ErrorMessage = "Please enter publisher.")]
-        [MaxLength(100, ErrorMessage = "Publisher name cannot be longer than 100 character.")]
-
         public string publisher_name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

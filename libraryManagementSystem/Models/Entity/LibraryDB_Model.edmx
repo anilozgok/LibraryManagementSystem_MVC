@@ -49,8 +49,6 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="member" Type="int" Nullable="false" />
           <Property Name="transaction_id" Type="int" Nullable="false" />
-          <Property Name="taken_date" Type="date" />
-          <Property Name="return_date" Type="date" />
           <Property Name="total_fine" Type="money" Nullable="false" />
         </EntityType>
         <EntityType Name="members">
@@ -110,6 +108,7 @@
           <Property Name="return_date" Type="date" />
           <Property Name="member_return_date" Type="date" />
           <Property Name="transaction_status" Type="bit" Nullable="false" />
+          <Property Name="expire" Type="int" />
         </EntityType>
         <Association Name="FK_books_author">
           <End Role="author" Type="Self.author" Multiplicity="1" />
@@ -307,8 +306,6 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="member" Type="Int32" Nullable="false" />
           <Property Name="transaction_id" Type="Int32" Nullable="false" />
-          <Property Name="taken_date" Type="DateTime" Precision="0" />
-          <Property Name="return_date" Type="DateTime" Precision="0" />
           <Property Name="total_fine" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <NavigationProperty Name="members" Relationship="Self.FK_fines_members" FromRole="fines" ToRole="members" />
           <NavigationProperty Name="transactions" Relationship="Self.FK_fines_transactions" FromRole="fines" ToRole="transactions" />
@@ -379,6 +376,7 @@
           <NavigationProperty Name="members" Relationship="Self.FK_transactions_members" FromRole="transactions" ToRole="members" />
           <Property Name="member_return_date" Type="DateTime" Precision="0" />
           <Property Name="transaction_status" Type="Boolean" Nullable="false" />
+          <Property Name="expire" Type="Int32" />
         </EntityType>
         <Association Name="FK_books_author">
           <End Role="author" Type="Self.author" Multiplicity="1" />
@@ -590,8 +588,6 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="member" ColumnName="member" />
                 <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
-                <ScalarProperty Name="taken_date" ColumnName="taken_date" />
-                <ScalarProperty Name="return_date" ColumnName="return_date" />
                 <ScalarProperty Name="total_fine" ColumnName="total_fine" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -649,6 +645,7 @@
           <EntitySetMapping Name="transactions">
             <EntityTypeMapping TypeName="DB_LIBRARYModel.transactions">
               <MappingFragment StoreEntitySet="transactions">
+                <ScalarProperty Name="expire" ColumnName="expire" />
                 <ScalarProperty Name="transaction_status" ColumnName="transaction_status" />
                 <ScalarProperty Name="member_return_date" ColumnName="member_return_date" />
                 <ScalarProperty Name="id" ColumnName="id" />

@@ -28,6 +28,7 @@ namespace libraryManagementSystem.Models.Entity
         public Nullable<System.DateTime> return_date { get; set; }
         public Nullable<System.DateTime> member_return_date { get; set; }
         public bool transaction_status { get; set; }
+        public Nullable<int> expire { get; set; }
     
         public virtual books books { get; set; }
         public virtual employees employees { get; set; }

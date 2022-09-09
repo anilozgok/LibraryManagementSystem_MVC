@@ -17,8 +17,6 @@ namespace libraryManagementSystem.Models.Entity
         public int id { get; set; }
         public int member { get; set; }
         public int transaction_id { get; set; }
-        public Nullable<System.DateTime> taken_date { get; set; }
-        public Nullable<System.DateTime> return_date { get; set; }
         public decimal total_fine { get; set; }
     
         public virtual members members { get; set; }

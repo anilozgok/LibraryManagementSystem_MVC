@@ -123,6 +123,7 @@
     <NavigationProperty Name="members" Relationship="Self.FK_transactions_members" FromRole="transactions" ToRole="members" />
     <Property Name="member_return_date" Type="DateTime" Precision="0" />
     <Property Name="transaction_status" Type="Boolean" Nullable="false" />
+    <Property Name="expire" Type="Int32" />
   </EntityType>
   <Association Name="FK_books_author">
     <End Role="author" Type="Self.author" Multiplicity="1" />

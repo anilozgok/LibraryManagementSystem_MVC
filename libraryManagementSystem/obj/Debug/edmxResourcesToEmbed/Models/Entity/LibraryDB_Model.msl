@@ -107,6 +107,7 @@
     <EntitySetMapping Name="transactions">
       <EntityTypeMapping TypeName="DB_LIBRARYModel.transactions">
         <MappingFragment StoreEntitySet="transactions">
+          <ScalarProperty Name="expire" ColumnName="expire" />
           <ScalarProperty Name="transaction_status" ColumnName="transaction_status" />
           <ScalarProperty Name="member_return_date" ColumnName="member_return_date" />
           <ScalarProperty Name="id" ColumnName="id" />

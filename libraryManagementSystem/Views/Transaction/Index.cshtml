@@ -33,7 +33,7 @@
         <th>Taken Date</th>
         <th>Return Date</th>
         <th>Member Return Date</th>
-        @*<th>Details</th>*@
+        <th>Expire</th>
 
     </tr>
     @foreach (var item in Model)
@@ -46,6 +46,10 @@
             <td>@item.taken_date.Value.ToShortDateString()</td>
             <td>@item.return_date.Value.ToShortDateString()</td>
             <td>@item.member_return_date.Value.ToShortDateString()</td>
+            @if (@item.expire > 0) { <td>@item.expire</td>}
+            else { <td>Not Expired</td>}
+
+            
 
             @*might be added later*@
             @*<td>@Html.ActionLink("Details", "showDetails", new { id = item.id }, new { @class="btn btn-secondary", @style="background-color:#f87cdf", onclick = "return confirm('Do you want to return selected book?')" })</td>*@

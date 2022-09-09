@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace libraryManagementSystem.Controllers
 {
-    public class ChartController : Controller
+    public class DashboardController : Controller
     {
         // GET: Chart
         public ActionResult Index()

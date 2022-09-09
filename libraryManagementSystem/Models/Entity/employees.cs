@@ -11,7 +11,6 @@ namespace libraryManagementSystem.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class employees
     {
@@ -22,15 +21,7 @@ namespace libraryManagementSystem.Models.Entity
         }
     
         public int employee_id { get; set; }
-
-
-        [Required(ErrorMessage = "Please enter name.")]
-        [MaxLength(50, ErrorMessage = "Name cannot be longer than 50 character.")]
         public string employee_name { get; set; }
-
-
-        [Required(ErrorMessage = "Please enter surname.")]
-        [MaxLength(50, ErrorMessage = "Surname cannot be longer than 50 character.")]
         public string employee_surname { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
