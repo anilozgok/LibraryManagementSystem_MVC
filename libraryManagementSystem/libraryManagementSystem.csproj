@@ -129,7 +129,7 @@
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\BookTransactionController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
-    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\cancelledDashboardController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
@@ -442,7 +442,7 @@
     <Content Include="showcase_web\vendor\jquery\jquery.min.map" />
     <Content Include="showcase_web\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Views\Showcase\Index.cshtml" />
-    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\cancelledDashboard\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
