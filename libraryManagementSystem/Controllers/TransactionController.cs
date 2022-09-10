@@ -16,10 +16,17 @@ namespace libraryManagementSystem.Controllers
         // GET: Transaction
         public ActionResult Index(string searchTransaction, int page=1)
         {
-            var completedTransaction = from t in library_DB.transactions select t;
-            completedTransaction = completedTransaction.Where(t => t.transaction_status == true);
+            var transactions = from t in library_DB.transactions select t;
+            var completedTransaction = transactions.Where(t => t.transaction_status == true);
+
+            
+            
+
+
             if (!string.IsNullOrEmpty(searchTransaction))
                 completedTransaction = completedTransaction.Where(t => (t.members.member_name + " " + t.members.member_surname).Contains(searchTransaction));
+            
+
             return View(completedTransaction.ToList().ToPagedList(page, 15));
         }
     }

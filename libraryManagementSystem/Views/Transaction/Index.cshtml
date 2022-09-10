@@ -48,9 +48,20 @@
             <td>@item.taken_date.Value.ToShortDateString()</td>
             <td>@item.return_date.Value.ToShortDateString()</td>
             <td>@item.member_return_date.Value.ToShortDateString()</td>
+
             @if (@item.expire > 0) { <td>@item.expire</td> }
-            else { <td>Not Expired</td> }
-            <td>Not finnesed</td>
+                else { <td>Not Expired</td> }
+            
+            @{
+                int fine=0;
+                if (item.expire!=null)
+                {
+                    fine = (int)@item.expire * 2;
+                }
+             }
+
+            @if (@fine > 0) {   <td>₺@fine</td> }
+                else { <td> Not Finnesed </td> }
 
         </tr>
     }
