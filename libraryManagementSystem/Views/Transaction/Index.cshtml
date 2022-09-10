@@ -34,11 +34,13 @@
         <th>Return Date</th>
         <th>Member Return Date</th>
         <th>Expire</th>
+        <th>Fine</th>
 
     </tr>
     @foreach (var item in Model)
     {
         <tr>
+
             <td>@item.id</td>
             <td>@item.books.book_name</td>
             <td>@item.members.member_name @item.members.member_surname</td>
@@ -46,16 +48,9 @@
             <td>@item.taken_date.Value.ToShortDateString()</td>
             <td>@item.return_date.Value.ToShortDateString()</td>
             <td>@item.member_return_date.Value.ToShortDateString()</td>
-            @if (@item.expire > 0) { <td>@item.expire</td>}
-            else { <td>Not Expired</td>}
-
-            
-
-            @*might be added later*@
-            @*<td>@Html.ActionLink("Details", "showDetails", new { id = item.id }, new { @class="btn btn-secondary", @style="background-color:#f87cdf", onclick = "return confirm('Do you want to return selected book?')" })</td>*@
-
-            @*if we want to use extra!showReturnBook page we need to uncomment this code block*@
-            @*<td>@Html.ActionLink("Take a return", "showReturnBook", new { id = item.id }, new { @class = "btn btn-warning" })</td>*@
+            @if (@item.expire > 0) { <td>@item.expire</td> }
+            else { <td>Not Expired</td> }
+            <td>Not finnesed</td>
 
         </tr>
     }

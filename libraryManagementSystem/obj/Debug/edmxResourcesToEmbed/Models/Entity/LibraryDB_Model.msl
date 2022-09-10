@@ -48,8 +48,6 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="member" ColumnName="member" />
           <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
-          <ScalarProperty Name="taken_date" ColumnName="taken_date" />
-          <ScalarProperty Name="return_date" ColumnName="return_date" />
           <ScalarProperty Name="total_fine" ColumnName="total_fine" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -44,8 +44,6 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="member" Type="int" Nullable="false" />
     <Property Name="transaction_id" Type="int" Nullable="false" />
-    <Property Name="taken_date" Type="date" />
-    <Property Name="return_date" Type="date" />
     <Property Name="total_fine" Type="money" Nullable="false" />
   </EntityType>
   <EntityType Name="members">

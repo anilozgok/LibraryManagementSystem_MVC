@@ -51,8 +51,6 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="member" Type="Int32" Nullable="false" />
     <Property Name="transaction_id" Type="Int32" Nullable="false" />
-    <Property Name="taken_date" Type="DateTime" Precision="0" />
-    <Property Name="return_date" Type="DateTime" Precision="0" />
     <Property Name="total_fine" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
     <NavigationProperty Name="members" Relationship="Self.FK_fines_members" FromRole="fines" ToRole="members" />
     <NavigationProperty Name="transactions" Relationship="Self.FK_fines_transactions" FromRole="fines" ToRole="transactions" />
