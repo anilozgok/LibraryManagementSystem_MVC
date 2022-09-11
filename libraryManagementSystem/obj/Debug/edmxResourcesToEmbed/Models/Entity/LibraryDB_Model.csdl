@@ -279,5 +279,8 @@
       <End Role="members" EntitySet="members" />
       <End Role="transactions" EntitySet="transactions" />
     </AssociationSet>
+    <FunctionImport Name="MostBookAuthor" ReturnType="Collection(String)" />
+    <FunctionImport Name="MostActiveMember" ReturnType="Collection(String)" />
+    <FunctionImport Name="MostReadBook" ReturnType="Collection(String)" />
   </EntityContainer>
 </Schema>

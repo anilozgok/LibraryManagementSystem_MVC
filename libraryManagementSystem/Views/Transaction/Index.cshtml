@@ -33,7 +33,7 @@
         <th>Taken Date</th>
         <th>Return Date</th>
         <th>Member Return Date</th>
-        <th>Expire</th>
+        <th>Expire (in day)</th>
         <th>Fine</th>
 
     </tr>
@@ -60,7 +60,7 @@
                 }
              }
 
-            @if (@fine > 0) {   <td>₺@fine</td> }
+            @if (@fine > 0) {   <td>$@fine</td> }
                 else { <td> Not Finnesed </td> }
 
         </tr>

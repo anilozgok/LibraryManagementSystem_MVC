@@ -117,5 +117,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="MostBookAuthor" FunctionName="DB_LIBRARYModel.Store.MostBookAuthor" />
+    <FunctionImportMapping FunctionImportName="MostActiveMember" FunctionName="DB_LIBRARYModel.Store.MostActiveMember" />
+    <FunctionImportMapping FunctionImportName="MostReadBook" FunctionName="DB_LIBRARYModel.Store.MostReadBook" />
   </EntityContainerMapping>
 </Mapping>

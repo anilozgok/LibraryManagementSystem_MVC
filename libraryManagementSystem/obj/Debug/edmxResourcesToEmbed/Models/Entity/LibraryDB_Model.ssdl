@@ -201,6 +201,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="MostActiveMember" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="MostBookAuthor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="MostReadBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="DB_LIBRARYModelStoreContainer">
     <EntitySet Name="author" EntityType="Self.author" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="books" EntityType="Self.books" Schema="dbo" store:Type="Tables" />

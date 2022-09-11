@@ -12,6 +12,8 @@ namespace libraryManagementSystem.Models.Entity
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class DB_LIBRARYEntities : DbContext
     {
@@ -36,5 +38,20 @@ namespace libraryManagementSystem.Models.Entity
         public virtual DbSet<schools> schools { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<transactions> transactions { get; set; }
+    
+        public virtual ObjectResult<string> MostBookAuthor()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("MostBookAuthor");
+        }
+    
+        public virtual ObjectResult<string> MostActiveMember()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("MostActiveMember");
+        }
+    
+        public virtual ObjectResult<string> MostReadBook()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("MostReadBook");
+        }
     }
 }

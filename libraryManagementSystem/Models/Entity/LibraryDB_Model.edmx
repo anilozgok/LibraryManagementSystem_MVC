@@ -206,6 +206,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="MostActiveMember" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="MostBookAuthor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="MostReadBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DB_LIBRARYModelStoreContainer">
           <EntitySet Name="author" EntityType="Self.author" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="books" EntityType="Self.books" Schema="dbo" store:Type="Tables" />
@@ -534,6 +537,9 @@
             <End Role="members" EntitySet="members" />
             <End Role="transactions" EntitySet="transactions" />
           </AssociationSet>
+          <FunctionImport Name="MostBookAuthor" ReturnType="Collection(String)" />
+          <FunctionImport Name="MostActiveMember" ReturnType="Collection(String)" />
+          <FunctionImport Name="MostReadBook" ReturnType="Collection(String)" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -657,6 +663,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="MostBookAuthor" FunctionName="DB_LIBRARYModel.Store.MostBookAuthor" />
+          <FunctionImportMapping FunctionImportName="MostActiveMember" FunctionName="DB_LIBRARYModel.Store.MostActiveMember" />
+          <FunctionImportMapping FunctionImportName="MostReadBook" FunctionName="DB_LIBRARYModel.Store.MostReadBook" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
