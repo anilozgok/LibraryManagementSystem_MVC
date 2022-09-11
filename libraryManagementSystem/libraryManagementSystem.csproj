@@ -132,6 +132,7 @@
     <Compile Include="Controllers\cancelledDashboardController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\PublisherController.cs" />
     <Compile Include="Controllers\SchoolController.cs" />
@@ -489,6 +490,7 @@
     <Content Include="web3\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="web3\images\Thumbs.db" />
     <Content Include="web3\js\js" />
+    <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
