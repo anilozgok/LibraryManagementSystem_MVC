@@ -108,7 +108,6 @@ C:\Users\Anil Can Ozgok\Documents\GitHub\libraryManagementSystem\libraryManageme
 C:\Users\Anil Can Ozgok\Documents\GitHub\libraryManagementSystem\libraryManagementSystem\bin\PagedList.dll
 C:\Users\Anil Can Ozgok\Documents\GitHub\libraryManagementSystem\libraryManagementSystem\bin\PagedList.Mvc.dll
 C:\Users\Anil Can Ozgok\Documents\GitHub\libraryManagementSystem\libraryManagementSystem\bin\System.Web.Helpers.dll
-C:\Users\Anil Can Ozgok\Documents\GitHub\libraryManagementSystem\libraryManagementSystem\bin\System.Web.Mvc.dll
 C:\Users\Anil Can Ozgok\Documents\GitHub\libraryManagementSystem\libraryManagementSystem\bin\System.Web.Optimization.dll
 C:\Users\Anil Can Ozgok\Documents\GitHub\libraryManagementSystem\libraryManagementSystem\bin\System.Web.Razor.dll
 C:\Users\Anil Can Ozgok\Documents\GitHub\libraryManagementSystem\libraryManagementSystem\bin\System.Web.WebPages.Deployment.dll
@@ -134,3 +133,4 @@ C:\Users\Anil Can Ozgok\Documents\GitHub\libraryManagementSystem\libraryManageme
 C:\Users\Anil Can Ozgok\Documents\GitHub\libraryManagementSystem\libraryManagementSystem\obj\Debug\libraryManagementSystem.csproj.CopyComplete
 C:\Users\Anil Can Ozgok\Documents\GitHub\libraryManagementSystem\libraryManagementSystem\obj\Debug\libraryManagementSystem.dll
 C:\Users\Anil Can Ozgok\Documents\GitHub\libraryManagementSystem\libraryManagementSystem\obj\Debug\libraryManagementSystem.pdb
+C:\Users\Anil Can Ozgok\Documents\GitHub\libraryManagementSystem\libraryManagementSystem\bin\System.Web.Mvc.dll
