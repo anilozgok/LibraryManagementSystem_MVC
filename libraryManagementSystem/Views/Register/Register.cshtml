@@ -1,0 +1,104 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+    <link rel="icon" href="~/library-icon/library.png" />
+
+    <link href="~/web-login-css/style.css" rel="stylesheet" />
+    <link href="~/web-login-css/fontawesome-all.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div>
+        <h1>Member Register Form</h1>
+        <div class="w3l-login-form">
+            <h2>Register Here</h2>
+            <form action="#" method="POST">
+
+                <div class="w3l-form-group">
+                    <div class="group">
+                        <input type="text" class="form-control" placeholder="Name" required="required" />
+                    </div>
+                </div>
+
+                <div class="w3l-form-group">
+                    <div class="group">
+                        <input type="text" class="form-control" placeholder="Surname" required="required" />
+                    </div>
+                </div>
+
+                <div class="w3l-form-group">
+                    <div class="group">
+                        <input type="text" class="form-control" placeholder="Email" required="required" />
+                    </div>
+                </div>
+
+                <div class="w3l-form-group">
+                    <div class="group">
+                        <input type="text" class="form-control" placeholder="Userame" required="required" />
+                    </div>
+                </div>
+
+                <div class="w3l-form-group">
+                    <div class="group">
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Password"
+                               required="required" />
+                        <i class="fas fa-eye" style="color: gray" id="togglePassword"></i>
+                    </div>
+                </div>
+
+                <div class="w3l-form-group">
+                    <div class="group">
+                        <input type="text" class="form-control" placeholder="Phone Number (5XX-XXX-XX-XX)" required="required" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                    </div>
+                </div>
+
+                <div>
+                    <select style="font-size: 13px; letter-spacing: 1px; color: gray; font-weight: 100; border: 1px solid #ccc; margin-bottom: 20px; width: 100%; padding: 1em;" id="schools" required="">
+                        <option value="" disabled selected>School</option>
+                    </select>
+                </div>
+
+
+                <button type="submit">Register</button>
+            </form>
+
+            <p class="w3l-register-p" style="color: gray">
+                Do you have an account?<a target="_self" href="/Login/Login/" class="register">
+                    Login
+                </a>
+            </p>
+
+        </div>
+
+        <script>
+            const togglePassword = document.querySelector("#togglePassword");
+            const password = document.querySelector("#password");
+
+            togglePassword.addEventListener("click", function () {
+                // toggle the type attribute
+                const type =
+                    password.getAttribute("type") === "password" ? "text" : "password";
+                password.setAttribute("type", type);
+
+                // toggle the icon
+                this.classList.toggle("fa-eye-slash");
+            });
+
+            // prevent form submit
+            const form = document.querySelector("form");
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+            });
+        </script>
+
+    </div>
+</body>
+</html>

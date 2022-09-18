@@ -28,6 +28,18 @@ h2 {
     margin-bottom: 25px;*/
 }
 
+select {
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: gray;
+    font-weight: 100;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 1em;
+}
+
+
 p.w3l-register-p {
     color: #eee;
     font-size: 13px;
@@ -42,7 +54,6 @@ p.w3l-register-p {
     padding: 3em;
     border-radius: 10px;
     box-sizing: border-box;
-    opacity: .5;
 }
 
 .group {
