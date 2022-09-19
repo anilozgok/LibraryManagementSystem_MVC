@@ -1,4 +1,6 @@
 ﻿
+@model libraryManagementSystem.Models.Entity.members
+
 @{
     Layout = null;
 }
@@ -20,55 +22,54 @@
         <h1>Member Register Form</h1>
         <div class="w3l-login-form">
             <h2>Register Here</h2>
-            <form action="#" method="POST">
 
+            @using (Html.BeginForm("Register", "Register", FormMethod.Post))
+            {
                 <div class="w3l-form-group">
                     <div class="group">
-                        <input type="text" class="form-control" placeholder="Name" required="required" />
+                        @Html.TextBoxFor(m => m.member_name, new { @class = "form-control", autocomplete = "off", placeholder = "Name" })
                     </div>
                 </div>
 
                 <div class="w3l-form-group">
                     <div class="group">
-                        <input type="text" class="form-control" placeholder="Surname" required="required" />
+                        @Html.TextBoxFor(m => m.member_surname, new { @class = "form-control", autocomplete = "off", placeholder = "Surame" })
                     </div>
                 </div>
 
                 <div class="w3l-form-group">
                     <div class="group">
-                        <input type="text" class="form-control" placeholder="Email" required="required" />
+                        @Html.TextBoxFor(m => m.mail, new { @class = "form-control", autocomplete = "off", placeholder = "Email" })
                     </div>
                 </div>
 
                 <div class="w3l-form-group">
                     <div class="group">
-                        <input type="text" class="form-control" placeholder="Userame" required="required" />
+                        @Html.TextBoxFor(m => m.user_name, new { @class = "form-control", autocomplete = "off", placeholder = "Username" })
                     </div>
                 </div>
 
+
                 <div class="w3l-form-group">
                     <div class="group">
-                        <input type="password" name="password" id="password" class="form-control" placeholder="Password"
-                               required="required" />
+                        @Html.TextBoxFor(m => m.password, new { @class = "form-control", autocomplete = "off", placeholder = "Password", type = "password" })
                         <i class="fas fa-eye" style="color: gray" id="togglePassword"></i>
                     </div>
                 </div>
 
                 <div class="w3l-form-group">
                     <div class="group">
-                        <input type="text" class="form-control" placeholder="Phone Number (5XX-XXX-XX-XX)" required="required" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                        @Html.TextBoxFor(m => m.phone_number, new { @class = "form-control", autocomplete = "off", placeholder = "Phone Number (5XX-XXX-XX-XX)", oninput = "this.value=this.value.replace(/[^0-9]/g,'');", maxlength = "10" })
                     </div>
                 </div>
 
-                <div>
-                    <select style="font-size: 13px; letter-spacing: 1px; color: gray; font-weight: 100; border: 1px solid #ccc; margin-bottom: 20px; width: 100%; padding: 1em;" id="schools" required="">
-                        <option value="" disabled selected>School</option>
-                    </select>
+                <div class="w3l-form-group">
+                    @Html.DropDownListFor(m => m.schools.school_id, (List<SelectListItem>)ViewBag.schools, new { @class = "form-control" })
                 </div>
 
+                <button id="registerBtn">Register</button>
+            }
 
-                <button type="submit">Register</button>
-            </form>
 
             <p class="w3l-register-p" style="color: gray">
                 Do you have an account?<a target="_self" href="/Login/Login/" class="register">

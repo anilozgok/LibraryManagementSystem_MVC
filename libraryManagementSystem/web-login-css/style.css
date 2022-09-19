@@ -28,7 +28,7 @@ h2 {
     margin-bottom: 25px;*/
 }
 
-select {
+.combo-box {
     font-size: 13px;
     letter-spacing: 1px;
     color: gray;
